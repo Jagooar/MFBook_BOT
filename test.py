@@ -25,7 +25,7 @@ punctuation_marks: list = [',', '.', '!', ':', ';', '?']
 
 def get_part_text(text: str, start: int, page_size: int) -> tuple[str, int]:
     final: int = start-1 + page_size
-    if text[final] in punctuation_marks and text[final+1] == (' ' or ''):
+    if text[final] in punctuation_marks and text[final+1] == (' ' or '' or '\n'):
         return (text[start:final+1], len(text[start:final+1]))
     else:
         for i in reversed(range(final - 1)):
